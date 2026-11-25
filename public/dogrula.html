@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>CV Doğrulama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { color-scheme: light; --ink: #0b1220; --muted: #64748b; --line: #e6eaf1; --brand: #0ea5e9; --ok: #059669; --okbg: #ecfdf5; --warn: #b45309; --warnbg: #fffbeb; --bad: #be123c; --badbg: #fff1f2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; color: var(--ink); font-family: "Poppins", "Segoe UI", system-ui, sans-serif; line-height: 1.55;
+      background: radial-gradient(900px 420px at 50% -120px, #bae6fd 0%, transparent 70%), linear-gradient(180deg, #f4f8fc, #e9eef6); }
+    .wrap { max-width: 520px; margin: 0 auto; padding: 36px 16px 56px; }
+    .top { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 18px; }
+    .top svg { width: 16px; height: 16px; color: var(--brand); }
+    .card { background: #fff; border-radius: 26px; box-shadow: 0 30px 70px -34px rgba(15,23,42,.38), 0 0 0 1px rgba(15,23,42,.05); overflow: hidden; }
+    .hero { padding: 30px 26px 24px; text-align: center; }
+    .badge { width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 16px; display: grid; place-items: center; font-size: 1.9rem; }
+    .state-current .badge { background: var(--okbg); box-shadow: 0 0 0 8px rgba(5,150,105,.08); }
+    .state-outdated .badge { background: var(--warnbg); box-shadow: 0 0 0 8px rgba(180,83,9,.08); }
+    .state-invalid .badge { background: var(--badbg); box-shadow: 0 0 0 8px rgba(190,18,60,.08); }
+    .state-none .badge { background: #e0f2fe; box-shadow: 0 0 0 8px rgba(14,165,233,.1); }
+    h1 { margin: 0; font-size: 1.35rem; line-height: 1.25; }
+    .state-current h1 { color: var(--ok); } .state-outdated h1 { color: var(--warn); } .state-invalid h1 { color: var(--bad); }
+    .lead { margin: 8px auto 0; max-width: 380px; color: var(--muted); font-size: .9rem; }
+    .code { display: inline-block; margin-top: 16px; font-family: Consolas, "Courier New", monospace; font-size: 1.05rem; font-weight: 700; letter-spacing: .1em; padding: 7px 16px; border-radius: 12px; background: #f1f5f9; border: 1px dashed #cbd5e1; }
+    .body { border-top: 1px solid var(--line); padding: 22px 26px 26px; }
+    .who strong { display: block; font-size: 1.05rem; }
+    .who span { color: var(--muted); font-size: .88rem; }
+    dl { display: grid; grid-template-columns: auto 1fr; gap: 9px 16px; margin: 18px 0 0; font-size: .86rem; }
+    dt { color: var(--muted); } dd { margin: 0; text-align: right; font-weight: 500; }
+    h2 { margin: 24px 0 10px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .proj { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 8px; }
+    .proj strong { display: block; font-size: .9rem; } .proj small { color: var(--muted); }
+    .proj a { color: inherit; text-decoration: none; } .proj a:hover { color: var(--brand); }
+    .pill { flex: none; font-size: .7rem; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: #f1f5f9; color: var(--muted); }
+    .pill.up { background: var(--okbg); color: var(--ok); } .pill.down { background: var(--badbg); color: var(--bad); }
+    .empty { color: var(--muted); font-size: .86rem; margin: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .btn { flex: 1 1 auto; text-align: center; border: 0; background: var(--ink); color: #fff; border-radius: 13px; padding: 12px 18px; font: inherit; font-size: .86rem; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .btn.alt { background: #eef2f7; color: var(--ink); }
+    form { display: flex; gap: 8px; margin-top: 22px; }
+    input { flex: 1; min-width: 0; font: inherit; font-family: Consolas, "Courier New", monospace; font-size: 1.05rem; letter-spacing: .1em; text-transform: uppercase; padding: 12px 14px; border: 2px solid var(--line); border-radius: 13px; outline: none; }
+    input:focus { border-color: var(--brand); }
+    .help { margin: 14px 0 0; font-size: .78rem; color: var(--muted); }
+    .foot { margin-top: 18px; text-align: center; font-size: .72rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>CV Doğrulama</div>
+    <div class="card" id="card"><div class="hero"><p class="lead">Doğrulanıyor…</p></div></div>
+    <p class="foot" id="foot"></p>
+  </div>
+  <script defer src="/js/verify-page.js"></script>
+</body>
+</html>

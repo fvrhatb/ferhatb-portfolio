@@ -1,0 +1,43 @@
+/* Hata sayfaları ortak stili (mutlak yoldan yüklenir: /errors/error.css) */
+:root {
+  --bg: #08090d; --card: rgba(19,24,36,.72); --text: #f4f6fb; --muted: #a5b0c6;
+  --line: rgba(255,255,255,.14); --accent: #38bdf8; --glow: rgba(56,189,248,.16);
+}
+:root[data-theme="light"] {
+  --bg: #f4f6fb; --card: rgba(255,255,255,.8); --text: #0f172a; --muted: #475569;
+  --line: rgba(15,23,42,.14); --accent: #0284c7; --glow: rgba(2,132,199,.14);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: grid; place-items: center; padding: 24px;
+  font-family: "Poppins", -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text);
+  background-image: radial-gradient(60vmax 40vmax at 50% 0%, var(--glow), transparent 70%);
+  -webkit-font-smoothing: antialiased;
+}
+.err {
+  width: min(520px, 100%); text-align: center; padding: 44px 32px 36px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28);
+  animation: errIn .6s cubic-bezier(.2,.8,.2,1) both;
+}
+.err-code {
+  margin: 0; font-size: clamp(5rem, 22vw, 8rem); font-weight: 700; line-height: 1; letter-spacing: -.04em;
+  background: linear-gradient(180deg, var(--text) 10%, var(--accent) 120%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.err-title { margin: 14px 0 8px; font-size: 1.25rem; font-weight: 600; }
+.err-text { margin: 0 auto; max-width: 38ch; color: var(--muted); font-size: .92rem; line-height: 1.65; }
+.err-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+.btn {
+  appearance: none; border: 1px solid var(--line); background: transparent; color: var(--text);
+  padding: 10px 20px; border-radius: 999px; font: 500 .85rem "Poppins", sans-serif; text-decoration: none; cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #06121c; font-weight: 600; }
+.err-foot { margin-top: 26px; font-size: .72rem; color: var(--muted); letter-spacing: .08em; }
+.err-foot a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+@keyframes errIn { from { opacity: 0; transform: translateY(14px) scale(.98); } }
+@media (prefers-reduced-motion: reduce) { .err { animation: none; } .btn { transition: none; } }

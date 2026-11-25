@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+deploy/
+output/
+.playwright-cli/
+public/uploads/*
+!public/uploads/.gitkeep
+backup-before-dynamic-theme-*/

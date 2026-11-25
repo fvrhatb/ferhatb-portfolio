@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /errors/
+Disallow: /admin
+Disallow: /api/
+
+Sitemap: https://ferhatb.com/sitemap.xml

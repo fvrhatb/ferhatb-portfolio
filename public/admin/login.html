@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Giriş — Yönetim Paneli</title>
+  <link rel="icon" href="/favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-card">
+      <div class="brand">
+        <span class="brand-mark">F</span>
+        <div><strong>ferhatb.com</strong><small>Yönetim Paneli</small></div>
+      </div>
+      <div class="login-kicker"><span aria-hidden="true">●</span> Güvenli yönetici erişimi</div>
+      <h1>Yönetim paneline giriş</h1>
+      <p id="login-description">Parola kullanmadan, yetkilendirilmiş Google hesabınla devam et.</p>
+      <div class="form-error" id="login-error" role="alert" hidden></div>
+      <a class="google-auth-btn" href="/api/auth/google" aria-describedby="login-description">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.35 12.2c0-.74-.07-1.45-.19-2.13H12v4.03h5.24a4.48 4.48 0 01-1.94 2.94v2.62h3.14c1.84-1.69 2.91-4.18 2.91-7.46z"/><path fill="#34A853" d="M12 21.7c2.62 0 4.82-.87 6.43-2.35l-3.14-2.62c-.87.58-1.98.93-3.29.93-2.53 0-4.68-1.71-5.45-4.01H3.31v2.7A9.71 9.71 0 0012 21.7z"/><path fill="#FBBC05" d="M6.55 13.65A5.84 5.84 0 016.25 12c0-.57.1-1.13.3-1.65v-2.7H3.31A9.71 9.71 0 002.3 12c0 1.56.37 3.03 1.01 4.35l3.24-2.7z"/><path fill="#EA4335" d="M12 6.34c1.43 0 2.71.49 3.72 1.45l2.79-2.79A9.35 9.35 0 0012 2.3a9.71 9.71 0 00-8.69 5.35l3.24 2.7c.77-2.3 2.92-4.01 5.45-4.01z"/></svg>
+        <span>Google ile giriş yap</span>
+        <span class="google-auth-arrow" aria-hidden="true">→</span>
+      </a>
+      <button class="btn demo-login-btn" type="button" id="demo-login" hidden>Paneli demo olarak incele <span aria-hidden="true">→</span></button>
+      <p class="demo-login-note" id="demo-login-note" hidden>Giriş yapmadan örnek verilerle paneli görüntüle. Değişiklikler kaydedilmez.</p>
+      <div class="login-trust">
+        <span class="trust-icon" aria-hidden="true">✓</span>
+        <p>Yalnızca yönetici listesine eklenmiş, Google tarafından doğrulanmış hesaplar erişebilir.</p>
+      </div>
+      <a class="back-link" href="/">← Siteye dön</a>
+    </div>
+  </main>
+  <script>
+    const errorBox = document.getElementById("login-error");
+    const params = new URLSearchParams(location.search);
+    const kind = params.get("error");
+    const demoButton = document.getElementById("demo-login");
+    fetch("/api/auth/demo/status", { cache: "no-store" }).then((r) => r.ok ? r.json() : { enabled: false }).then((data) => {
+      demoButton.hidden = !data.enabled;
+      document.getElementById("demo-login-note").hidden = !data.enabled;
+    }).catch(() => {});
+    demoButton.addEventListener("click", async () => {
+      demoButton.disabled = true;
+      try {
+        const res = await fetch("/api/auth/demo", { method: "POST", credentials: "same-origin" });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Demo açılamadı.");
+        location.href = "/admin";
+      } catch (error) { errorBox.textContent = error.message; errorBox.hidden = false; demoButton.disabled = false; }
+    });
+    if (kind) {
+      const messages = {
+        unauthorized: `${params.get("email") || "Bu Google hesabı"} yönetici olarak yetkilendirilmemiş.`,
+        cancelled: "Google girişi iptal edildi. Hazır olduğunda tekrar deneyebilirsin.",
+        oauth: "Google girişi tamamlanamadı. Lütfen tekrar dene."
+      };
+      errorBox.textContent = messages[kind] || messages.oauth;
+      errorBox.hidden = false;
+    }
+  </script>
+</body>
+</html>

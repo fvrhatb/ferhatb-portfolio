@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Yönetim Paneli — ferhatb.com</title>
+  <link rel="icon" href="/favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" id="menu-btn" aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <strong>Yönetim Paneli</strong>
+    <a class="icon-btn" href="/" target="_blank" aria-label="Siteyi aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg></a>
+  </header>
+  <div class="shell">
+    <aside class="side" id="side">
+      <div class="brand">
+        <span class="brand-mark">F</span>
+        <div><strong>ferhatb.com</strong><small>Yönetim Paneli</small></div>
+      </div>
+      <nav class="nav" id="nav" aria-label="Panel menüsü"></nav>
+      <div class="side-foot">
+        <div class="who" id="who"></div>
+        <a href="/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg>Siteyi görüntüle</a>
+        <button type="button" id="logout-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 012 2v12a2 2 0 01-2 2h-3M10 17l5-5-5-5M15 12H3"/></svg>Çıkış yap</button>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim" hidden></div>
+    <main class="main"><div class="page" id="page"><div class="loading"><span class="spin"></span></div></div></main>
+  </div>
+
+  <div class="savebar" id="savebar" role="region" aria-label="Kaydedilmemiş değişiklikler">
+    <div class="msg"><i class="dot"></i>Kaydedilmemiş değişiklikler <span>var</span></div>
+    <div style="display:flex;gap:8px">
+      <button class="btn ghost" type="button" id="discard-btn">Vazgeç</button>
+      <button class="btn primary" type="button" id="save-btn">Kaydet</button>
+    </div>
+  </div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="/admin/pages.js"></script>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

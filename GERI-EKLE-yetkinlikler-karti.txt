@@ -1,0 +1,10 @@
+js/main.js > renderAbout() içindeki Teknoloji Yığını kartının hemen ALTINA (</article>'dan sonra, kapanış ` karakterinden önce) şu bloğu geri yapıştır:
+
+      <article class="bento-card bento-span-12">
+        <h3 style="font-size:1rem;font-weight:600;">Yetkinlikler &amp; Saha Becerileri</h3>
+        <div class="tag-cloud">
+          ${about.skills
+            .map((skill) => `<span class="tech-pill">${skill}</span>`)
+            .join("")}
+        </div>
+      </article>

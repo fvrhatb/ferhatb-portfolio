@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/cv.css" />
+  <style>
+    :root { color-scheme: light; --bg: #e8ecf2; --ink: #0f172a; --muted: #64748b; --line: #d5dbe5; --brand: #2563eb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Poppins", "Segoe UI", Arial, sans-serif; }
+    .bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 18px; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .bar h1 { margin: 0; font-size: .95rem; font-weight: 600; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
+    .tab { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 13px; font: inherit; font-size: .78rem; cursor: pointer; }
+    .tab[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .btn { border: 0; background: var(--brand); color: #fff; border-radius: 10px; padding: 9px 16px; font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; }
+    .btn:hover { filter: brightness(1.08); }
+    .note { font-size: .74rem; color: var(--muted); }
+    .note.warn { color: #b45309; font-weight: 500; }
+    .draft { background: #fef3c7; color: #92400e; font-size: .78rem; padding: 7px 18px; text-align: center; }
+    .stage { padding: 22px 12px 60px; display: flex; justify-content: center; }
+    .sheet { transform-origin: top center; box-shadow: 0 10px 40px rgba(15,23,42,.18); background: #fff; flex: none; }
+    .empty { padding: 80px 20px; text-align: center; color: var(--muted); }
+    @media print {
+      body { background: #fff; }
+      .bar, .draft, .empty { display: none !important; }
+      .stage { padding: 0; display: block; }
+      .sheet { transform: none !important; box-shadow: none; margin: 0 !important; }
+    }
+    @page { size: A4 portrait; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="draft" id="draft" hidden>Taslak önizleme: henüz kaydetmediğin değişiklikler de burada görünüyor.</div>
+  <div class="bar">
+    <h1 id="who">CV</h1>
+    <div class="tabs" id="tabs" role="group" aria-label="CV sürümü"></div>
+    <span class="note" id="fit"></span>
+    <button class="btn" id="print" type="button">PDF olarak kaydet / Yazdır</button>
+  </div>
+  <div class="stage"><div class="sheet" id="sheet"></div></div>
+  <p class="empty" id="empty" hidden>CV verisi alınamadı.</p>
+
+  <script defer src="/js/data.js"></script>
+  <script defer src="/js/qrcode.js"></script>
+  <script defer src="/js/cv-render.js"></script>
+  <script defer src="/js/cv-page.js"></script>
+</body>
+</html>

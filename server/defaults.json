@@ -1,0 +1,418 @@
+{
+  "settings": {
+    "siteName": "Ferhat Bayram",
+    "siteUrl": "https://ferhatb.com",
+    "adminDemoEnabled": false,
+    "consoleEffects": [{ "trigger": "hamide", "emoji": "🔥", "enabled": true }],
+    "defaultTheme": "light",
+    "discordId": "459702990551515136",
+    "discordUsername": "ferhatsavage",
+    "spotifyFallbackArt": "https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?auto=format&fit=crop&w=300&q=80",
+    "seoTitle": "Ferhat Bayram — Özgeçmiş & Portföy",
+    "seoDescription": "Ferhat Bayram — müşteri odaklı, çok yönlü profesyonel. Kafe, perakende ve bilişim deneyimi; eğitim, çalışma hayatı ve projeler.",
+    "shareDescription": "Müşteri odaklı, çok yönlü profesyonel. Eğitim, çalışma hayatı ve projelerim.",
+    "ogImage": "/og-image.png",
+    "twitter": "fvrhatb",
+    "jobTitle": "Müşteri Odaklı Çok Yönlü Profesyonel",
+    "city": "Maltepe, İstanbul",
+    "favicon": "/favicon.jpg"
+  },
+  "profile": {
+    "name": "Ferhat Bayram",
+    "handle": "@Ferb",
+    "username": "fvrhatb",
+    "role": "Web Developer & Creative Director",
+    "location": "İstanbul, Maltepe • 5 Yıl Deneyim",
+    "email": "admin@ferhatb.com",
+    "avatarSource": "discord",
+    "avatar": "https://bgcp.bionluk.com/images/avatar/200x200/7be2cf1d-d964-4dc2-b2f3-a02552e98201.png",
+    "footer": "Ferhat Bayram. Tüm hakları saklıdır.",
+    "liveStatusesEnabled": true,
+    "liveStatuses": [
+      "Portföyümü parlatıyorum ✨",
+      "Yapay zekâ ile oynuyorum 🤖",
+      "Yeni projeler için fikir üretiyorum 💡",
+      "Spotify'da yeni keşifler yapıyorum 🎧",
+      "Bir sonraki büyük adımı planlıyorum 📌"
+    ]
+  },
+  "socials": {
+    "items": [
+      {
+        "label": "LinkedIn",
+        "icon": "linkedin",
+        "url": "https://www.linkedin.com/in/fvrhatb/"
+      },
+      {
+        "label": "X",
+        "icon": "x",
+        "url": "https://x.com/fvrhatb"
+      },
+      {
+        "label": "Instagram",
+        "icon": "instagram",
+        "url": "https://instagram.com/fvrhatb"
+      },
+      {
+        "label": "Bionluk",
+        "icon": "text",
+        "text": "B",
+        "url": "https://bionluk.com/fvrhatb"
+      },
+      {
+        "label": "Kick",
+        "icon": "text",
+        "text": "K",
+        "url": "https://kick.com/fvrhatb"
+      },
+      {
+        "label": "Discord",
+        "icon": "discord",
+        "url": ""
+      }
+    ]
+  },
+  "sections": {
+    "about": {
+      "kicker": "01 / Profil Özeti",
+      "title": "Hakkımda",
+      "nav": "Hakkımda",
+      "enabled": true
+    },
+    "education": {
+      "kicker": "02 / Akademik Geçmiş ve Sertifikalar",
+      "title": "Eğitim",
+      "nav": "Eğitim",
+      "enabled": true
+    },
+    "experience": {
+      "kicker": "03 / Profesyonel ve Saha Deneyimi",
+      "title": "Çalışma Hayatı",
+      "nav": "Deneyim",
+      "enabled": true
+    },
+    "projects": {
+      "kicker": "04 / Seçili Çalışmalar ve Vitrin",
+      "title": "Projeler",
+      "nav": "Projeler",
+      "enabled": true
+    }
+  },
+  "about": {
+    "manifesto": "Küçük detaylara gösterilen özen, büyük farkı yaratır.",
+    "tags": [
+      "#YapayZeka",
+      "#Doomscrolling",
+      "#Müzik"
+    ],
+    "summary": "Kafe, perakende ve bilişim alanlarında edindiğim deneyimle müşteriyle doğru iletişim kurmayı, hızlı ve dikkatli çalışmayı öğrendim. İşimi düzenli, güler yüzlü ve sorumluluk alarak yapmayı; her ortamda hızla uyum sağlayıp ekibime değer katmayı önemsiyorum.",
+    "visionTitle": "İlham & Gelecek Vizyonu",
+    "visionText": "Müzikten, insanlardan ve günlük hayatın temposundan ilham alıyorum. Hedefim; öğrenmeye açık kalarak kendimi sürekli geliştirmek, hizmet kalitesiyle fark yaratan ve güvenilir bir profesyonel olarak kariyerimde istikrarlı adımlarla ilerlemek.",
+    "workspaceImage": "photo.jpg",
+    "workspaceFallback": "/grok-a4acad3b-dd4d-4a53-8c30-8f4826bab69c.jpg",
+    "workspaceAlt": "Ferhat Bayram portre illüstrasyonu",
+    "workspaceCaption": "",
+    "techStack": [
+      {
+        "label": "Müşteri İlişkileri",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Ekip Çalışması",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Zaman Yönetimi",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Sorumluluk Bilinci",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Hızlı Öğrenme",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Problem Çözme",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "İletişim",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Kasa & Satış",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Barista & Servis",
+        "primary": true,
+        "enabled": true
+      },
+      {
+        "label": "Bilgisayar Kullanımı",
+        "primary": true,
+        "enabled": true
+      }
+    ],
+    "techTitle": "Yetenekler & Güçlü Yönler"
+  },
+  "education": {
+    "items": [
+      {
+        "school": "Anadolu Üniversitesi",
+        "logo": "assets/images/anadoluuniversitesi.png",
+        "department": "Önlisans, Bankacılık ve Sigortacılık",
+        "period": "Eylül 2026 – Devam Ediyor",
+        "details": "Anadolu Üniversitesi Açıköğretim Sistemi bünyesinde iki yıllık önlisans eğitimine devam etmektedir. Program kapsamında bankacılık ve sigortacılığa giriş, finans matematiği, finansal yönetim, bankalarda kredi yönetimi, iktisat, genel muhasebe, temel hukuk ve müşteri ilişkileri yönetimi alanlarında dersler almaktadır.",
+        "id": "edu-anadolu",
+        "enabled": true
+      },
+      {
+        "school": "Maltepe Üniversitesi",
+        "logo": "assets/images/maltepeuniversitesi.png",
+        "department": "Önlisans, Bilgisayar Programcılığı (%50 Burslu)",
+        "period": "Eylül 2025 – Haziran 2026",
+        "details": "İstanbul Bilgi Üniversitesi'ndeki ilk yılın ardından ikinci senede Maltepe Üniversitesi Bilgisayar Programcılığı programına yatay geçiş yapılarak %50 burslu olarak öğrenim görüldü. Bilgi Üniversitesi'nde alınan ikinci öğretim dersleri Maltepe Üniversitesi'nde birinci öğretim olarak devam etti.",
+        "id": "edu-maltepe",
+        "enabled": true
+      },
+      {
+        "school": "İstanbul Bilgi Üniversitesi",
+        "logo": "assets/images/bilgiuniversitesi.png",
+        "department": "Önlisans, Bilgisayar Programcılığı (İkinci Öğretim, %50 Burslu — Kuştepe Kampüsü)",
+        "period": "Eylül 2024 – Haziran 2025",
+        "details": "İstanbul Bilgi Üniversitesi Kuştepe Kampüsü'nde %50 burslu olarak Bilgisayar Programcılığı (İkinci Öğretim) programında öğrenim görüldü. Üniversite hayatının ilk senesi burada tamamlandıktan sonra ikinci sene itibarıyla Maltepe Üniversitesi'ne yatay geçiş yapıldı.",
+        "id": "edu-bilgi",
+        "enabled": true
+      },
+      {
+        "school": "Fatih Sultan Mehmet Mesleki ve Teknik Anadolu Lisesi",
+        "department": "Lise, Bilişim Teknolojileri (İstanbul, Maltepe)",
+        "period": "Eylül 2020 – Haziran 2024",
+        "details": "Yazılım geliştirme, algoritma mantığı, ağ sistemleri ve donanım konularında teorik ve uygulamalı eğitimler alındı. 11. sınıfta TEKNOFEST'e katılarak takım çalışması, proje yönetimi ve uygulamalı yazılım geliştirme deneyimi kazanıldı.",
+        "id": "edu-lise",
+        "enabled": true
+      }
+    ]
+  },
+  "certificates": {
+    "items": [
+      {
+        "title": "İş Sağlığı ve Güvenliği Sertifikası",
+        "logo": "assets/images/bilgiuniversitesi.png",
+        "issuer": "İstanbul Bilgi Üniversitesi • Ocak 2025",
+        "desc": "İşyerinde güvenliği sağlamak ve kazaları önlemek için yasal yetkinlik kazandırır.",
+        "id": "cert-isg",
+        "enabled": true
+      },
+      {
+        "title": "Gıda ve Su Sektöründe Çalışanlar İçin Hijyen Eğitimi Sertifikası",
+        "logo": "assets/images/biruniuniversitesi.png",
+        "issuer": "Biruni Üniversitesi • Ekim 2024",
+        "desc": "Gıda güvenliğini ve tüketici sağlığını korumaya yönelik zorunlu hijyen kuralları yetkinliği.",
+        "id": "cert-hijyen",
+        "enabled": true
+      }
+    ]
+  },
+  "experience": {
+    "items": [
+      {
+        "company": "Penguen Kitabevleri",
+        "logo": "assets/images/penguen-kitapevi.png",
+        "role": "Barista • Tam zamanlı (Maltepe, İstanbul)",
+        "period": "Temmuz 2026 – Devam ediyor",
+        "details": "Maltepe şubesinde kitap ve iyi kahve konseptini bir araya getiren kafe bölümünde tam zamanlı barista olarak görev almaktadır. Espresso bazlı sıcak ve soğuk içeceklerin hazırlanması, tezgâh düzeni ve misafir odaklı servis süreçlerini yürütmektedir.",
+        "id": "exp-penguen",
+        "enabled": true
+      },
+      {
+        "company": "Çikolatapare",
+        "logo": "assets/images/cikolatapare.png",
+        "role": "Barista • Tam zamanlı (Maltepe, İstanbul)",
+        "period": "Haziran 2025 – Ocak 2026 (8 ay)",
+        "details": "Hilltown MOC'ta edinilen baristalık deneyiminin ardından Hilltown AVM'deki Çikolatapare işletmesinde görev alındı. Bu süreçte müşteri ilişkileri ve satış konularında aktif deneyim kazanıldı.",
+        "id": "exp-cikolatapare",
+        "enabled": true
+      },
+      {
+        "company": "Ministry of Coffee",
+        "logo": "assets/images/moccoffee.png",
+        "role": "Garson • Yarı zamanlı (Maltepe, İstanbul)",
+        "period": "Eylül 2024 – Haziran 2025 (10 ay)",
+        "details": "Üniversite eğitimiyle eş zamanlı olarak Hilltown AVM'deki MOC Coffee şubesinde yaklaşık 10 ay yarı zamanlı çalışıldı. Baristalık eğitimi alınıp sahada uygulandı; temel kahve bilgileri, müşteri memnuniyeti ve hızlı servis konularında tecrübe kazanıldı. İşletmenin farklı bir firmaya devredilmesi ve tüm personel kadrosunun değişmesi nedeniyle yollar ayrıldı.",
+        "id": "exp-moc",
+        "enabled": true
+      },
+      {
+        "company": "Koç Okulu",
+        "logo": "assets/images/kocokullari.png",
+        "role": "Stajyer — Bilgi Teknolojileri (IT) (Tuzla, İstanbul)",
+        "period": "Eylül 2023 – Haziran 2024 (10 ay)",
+        "details": "12. sınıf stajı kapsamında Bilgi Teknolojileri (IT) departmanında donanım desteği, ağ kurulumu ve kullanıcı taleplerine teknik çözüm sağlama görevlerinde aktif rol alındı.",
+        "id": "exp-kocokulu",
+        "enabled": true
+      },
+      {
+        "company": "Petrol Ofisi",
+        "logo": "assets/images/petrolofisi.png",
+        "role": "Market Elemanı • Tam zamanlı (Maltepe, İstanbul)",
+        "period": "Haziran 2022 – Eylül 2022 (4 ay)",
+        "details": "11. sınıf yaz tatilinde market görevlisi olarak müşteri hizmetleri, stok takibi, kasa işlemleri ve temizlik alanlarında aktif rol alındı; yoğun tempoda çalışma disiplini güçlendirildi.",
+        "id": "exp-po-market",
+        "enabled": true
+      },
+      {
+        "company": "Petrol Ofisi",
+        "logo": "assets/images/petrolofisi.png",
+        "role": "Akaryakıt Satış Elemanı • Tam zamanlı (Maltepe, İstanbul)",
+        "period": "Haziran 2021 – Eylül 2021 (4 ay)",
+        "details": "10. sınıf yaz tatilinde iş hayatına ilk adım atıldı; müşteri iletişimi, takım çalışması, vardiyalı sistemde disiplinli çalışma ve sorumluluk alma deneyimi kazanıldı.",
+        "id": "exp-po-akaryakit",
+        "enabled": true
+      }
+    ]
+  },
+  "projects": {
+    "items": [],
+    "comingSoon": {
+      "badge": "Çok Yakında",
+      "emoji": "🎉",
+      "title": "Güzel şeyler geliyor",
+      "text": "Burada yakında gurur duyduğum işler yer alacak. Şu an mutfakta bir şeyler pişiyor, takipte kal!",
+      "hint": "Konfeti için dokun ✨",
+      "enabled": true
+    }
+  },
+  "cv": {
+    "mode": "auto",
+    "fileUrl": "",
+    "buttonLabel": "CV İndir",
+    "buttonHint": "PDF / A4",
+    "activeVersion": "genel",
+    "name": "Ferhat Bayram",
+    "photo": "/ferhatbayram.png",
+    "role": "Barista & Garson",
+    "summary": "Kafe ve perakende sektöründe barista, garson ve satış deneyimine; bilişim alanında staj ve yazılım eğitimine sahibim. Müşteri iletişimi, hızlı ve dikkatli çalışma ile takım uyumuna önem veriyorum. Şu anda Anadolu Üniversitesi Bankacılık ve Sigortacılık önlisans programına devam ediyorum.",
+    "email": "fvrhatb@gmail.com",
+    "phone": "",
+    "location": "İstanbul, Maltepe",
+    "linkedin": "linkedin.com/in/fvrhatb",
+    "web": "ferhatb.com",
+    "github": "",
+    "birthDate": "",
+    "drivingLicense": "",
+    "militaryStatus": "",
+    "skills": [
+      "Yazılım Geliştirme",
+      "Huawei Cloud",
+      "Teknik Sorun Giderme",
+      "Baristalık ve Kahve Hazırlama",
+      "Kafe",
+      "Kahve",
+      "Müşteri İletişimi ve Hizmet",
+      "Hızlı ve Dikkatli Çalışma"
+    ],
+    "languages": [
+      {
+        "name": "Türkçe",
+        "level": "Ana dil"
+      }
+    ],
+    "interests": [],
+    "references": [],
+    "versions": [
+      {
+        "id": "genel",
+        "name": "Genel CV",
+        "template": "modern",
+        "accent": "#38bdf8",
+        "lang": "tr",
+        "role": "",
+        "summary": "",
+        "showPhoto": true,
+        "descMode": "short",
+        "showSummary": true,
+        "showSkills": true,
+        "showCertificates": true,
+        "showProjects": true,
+        "showLanguages": true,
+        "showInterests": true,
+        "showReferences": true,
+        "showPersonal": false,
+        "hiddenExperience": [],
+        "hiddenEducation": [],
+        "hiddenCertificates": [],
+        "hiddenProjects": [],
+        "hiddenSkills": [],
+        "showQr": true
+      },
+      {
+        "id": "yazilim",
+        "name": "Yazılım / Bilişim Başvurusu",
+        "template": "klasik",
+        "accent": "#2563eb",
+        "lang": "tr",
+        "role": "Bilişim & Yazılım Geliştirme",
+        "summary": "Bilgisayar Programcılığı önlisans eğitimi aldım; Bilgi Teknolojileri alanında 10 aylık staj deneyimine sahibim. Donanım desteği, ağ kurulumu ve teknik sorun giderme konularında çalıştım; yazılım geliştirme ve bulut teknolojilerine ilgi duyuyorum.",
+        "showPhoto": false,
+        "descMode": "short",
+        "showSummary": true,
+        "showSkills": true,
+        "showCertificates": true,
+        "showProjects": true,
+        "showLanguages": true,
+        "showInterests": true,
+        "showReferences": true,
+        "showPersonal": false,
+        "hiddenExperience": [
+          "exp-penguen",
+          "exp-cikolatapare",
+          "exp-moc",
+          "exp-po-market",
+          "exp-po-akaryakit"
+        ],
+        "hiddenEducation": [],
+        "hiddenCertificates": [
+          "cert-hijyen"
+        ],
+        "hiddenProjects": [],
+        "hiddenSkills": [
+          "Baristalık ve Kahve Hazırlama",
+          "Kafe",
+          "Kahve",
+          "Müşteri İletişimi ve Hizmet"
+        ],
+        "showQr": true
+      }
+    ]
+  },
+  "counter": {
+    "enabled": true,
+    "label": "görüntülenme",
+    "metric": "total",
+    "offset": 0,
+    "excludeAdmin": true
+  },
+  "snake": {
+    "showRecord": true,
+    "recordLabel": "Rekor"
+  },
+  "presence": {
+    "enabled": true,
+    "wave": true,
+    "showHint": true,
+    "label": "Ziyaretçi",
+    "maxGhosts": 8
+  }
+}

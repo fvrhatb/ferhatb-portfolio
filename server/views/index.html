@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="{{view.theme}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <!-- Bu dosya bir şablondur: {{...}} alanlarını Node sunucusu yönetim panelindeki verilerle doldurur. -->
+  <title>{{settings.seoTitle}}</title>
+  <meta name="description" content="{{settings.seoDescription}}" />
+  <meta name="author" content="{{profile.name}}" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="{{view.canonical}}" />
+  <meta name="theme-color" content="{{view.themeColor}}" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- Simgeler -->
+  <link rel="icon" href="{{view.favicon}}" />
+  <link rel="apple-touch-icon" href="{{view.favicon}}" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Paylaşım önizlemesi (Discord, WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="{{settings.siteName}}" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:title" content="{{settings.seoTitle}}" />
+  <meta property="og:description" content="{{settings.shareDescription}}" />
+  <meta property="og:url" content="{{view.canonical}}" />
+  <meta property="og:image" content="{{view.ogImage}}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{settings.seoTitle}}" />
+
+  <!-- X (Twitter) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@{{view.twitter}}" />
+  <meta name="twitter:creator" content="@{{view.twitter}}" />
+  <meta name="twitter:title" content="{{settings.seoTitle}}" />
+  <meta name="twitter:description" content="{{settings.shareDescription}}" />
+  <meta name="twitter:image" content="{{view.ogImage}}" />
+
+  <!-- Arama motorları için yapılandırılmış veri -->
+  <script type="application/ld+json">{{{view.jsonLd}}}</script>
+
+  <!-- Google Fonts: Poppins (latin-ext Türkçe karakter desteği ve display=swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Ayrıştırılmış CSS Modülleri -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/effects.css" />
+  <link rel="stylesheet" href="css/cv.css" />
+  <link rel="stylesheet" href="css/presence.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <script>
+    /* Kayıtlı temayı ilk boyamadan önce uygula (loader ve sayfa doğru temada açılsın) */
+    try {
+      var t = localStorage.getItem("ferb-theme");
+      if (!t) t = "{{view.theme}}";
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="loader" id="site-loader" role="status" aria-label="Sayfa yükleniyor"><div class="spinner"></div></div>
+  <button type="button" class="cmd-fab" id="cmd-open-btn" aria-label="Konsolu aç (F4)" title="Konsol (F4)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l6-5-6-5M12 19h8"/></svg><span>Konsol</span><kbd>F4</kbd></button>
+  <button type="button" class="theme-fab theme-icon-btn" id="theme-toggle-btn" aria-label="Tema değiştir" title="Tema değiştir"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
+  <!-- İmleç Takipli Ortam Işığı -->
+  <div class="ambient-spotlight" aria-hidden="true"></div>
+
+  <!-- Mobil Üst Çubuk (960px altı) -->
+  <header class="mobile-header">
+    <div class="mobile-brand">
+      <span class="mobile-dot status-offline" id="mobile-status-dot" aria-hidden="true"></span>
+      <span class="mobile-name">{{profile.name}}</span>
+    </div>
+    <div class="mobile-actions">
+      <button type="button" class="icon-btn theme-icon-btn" id="mobile-theme-btn" aria-label="Tema Değiştir" title="Tema Değiştir"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+      <button type="button" class="icon-btn" id="mobile-menu-btn" aria-expanded="false" aria-controls="sidebar-panel" aria-label="Menüyü Aç">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobil Arka Plan Karartması -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+
+  <div class="page-shell">
+    <!-- SOL SÜTUN: Taslaktaki PP, İsim, Sidebar ve Spotify Alanı -->
+    <aside class="sidebar" id="sidebar-panel" data-lenis-prevent aria-label="Profil ve Gezinme">
+      <div class="sidebar-top">
+        <div class="avatar-wrapper">
+          <img
+            id="profile-avatar"
+            class="profile-avatar"
+            src="{{profile.avatar}}"
+            alt="{{profile.name}} profil fotoğrafı"
+            referrerpolicy="no-referrer"
+          />
+          <span
+            id="discord-status-badge"
+            class="discord-status-badge status-offline"
+            title="Discord Durumu Yükleniyor..."
+            aria-label="Discord durumu"
+          ></span>
+        </div>
+
+        <div class="identity-block">
+          <div class="name-row">
+            <h1 class="profile-name">{{profile.name}}</h1>
+            <span class="handle-pill">{{profile.handle}}</span>
+          </div>
+          <p class="profile-role">{{profile.role}}</p>
+          <p class="profile-location">{{profile.location}}</p>
+          <p class="status-note" id="live-status" role="status" aria-live="polite" aria-atomic="true" {{view.liveStatusHidden}}>
+            <span class="status-pulse" aria-hidden="true"></span>
+            <span class="status-label"></span>
+            <span class="status-text" id="live-status-text">{{view.firstStatus}}</span>
+          </p>
+          <p class="view-counter" id="view-counter" {{view.counterHidden}} title="Siteye yapılan ziyaretler">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <strong id="view-counter-value">{{view.counterValue}}</strong>
+            <span>{{view.counterLabel}}</span>
+          </p>
+        </div>
+
+        <button type="button" class="download-cv-btn" id="download-cv-btn">
+          <span aria-hidden="true">↓</span><span>{{view.cvLabel}}</span><small>{{view.cvHint}}</small>
+        </button>
+
+        <!-- Taslaktaki "sidebar" gezinme alanı -->
+        <nav class="sidebar-nav" aria-label="Bölüm Gezintisi">
+          <a href="#hakkimda" class="nav-link is-active" data-section="hakkimda" {{view.hide.about}}>
+            <span class="nav-index">01</span>
+            <span class="nav-text">{{sections.about.nav}}</span>
+          </a>
+          <a href="#egitim" class="nav-link" data-section="egitim" {{view.hide.education}}>
+            <span class="nav-index">02</span>
+            <span class="nav-text">{{sections.education.nav}}</span>
+          </a>
+          <a href="#calisma-hayati" class="nav-link" data-section="calisma-hayati" {{view.hide.experience}}>
+            <span class="nav-index">03</span>
+            <span class="nav-text">{{sections.experience.nav}}</span>
+          </a>
+          <a href="#projeler" class="nav-link" data-section="projeler" {{view.hide.projects}}>
+            <span class="nav-index">04</span>
+            <span class="nav-text">{{sections.projects.nav}}</span>
+          </a>
+        </nav>
+
+        <div class="social-links" aria-label="İletişim ve Bağlantılar">
+          <button type="button" class="social-pill" id="copy-email-btn" aria-describedby="email-copy-hint">
+            {{profile.email}}
+            <span class="email-copy-tooltip" id="email-copy-hint" role="tooltip">E-posta adresini kopyala</span>
+          </button>
+          <div class="social-icons-row">
+            {{{view.socials}}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Taslaktaki "şu anda dinliyor (spotify entegre)" bileşeni (Lanyard API) -->
+      <section class="spotify-card glass-surface" id="lanyard-card" aria-live="polite" aria-atomic="true" aria-label="Şu anda etkin">
+        <div class="spotify-header">
+          <div class="spotify-badge">
+            <span class="equalizer" id="spotify-equalizer" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </span>
+            <span id="spotify-state-label">Etkinlik Yükleniyor...</span>
+          </div>
+          <span class="discord-text-state" id="discord-text-state">Discord</span>
+        </div>
+
+        <div class="spotify-body">
+          <button type="button" class="activity-nav" id="activity-prev-btn" aria-label="Önceki etkinlik" hidden>‹</button>
+          <a id="spotify-cover-link" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" class="spotify-cover-wrap">
+            <img
+              id="spotify-album-art"
+              class="spotify-album-art"
+              src="{{settings.spotifyFallbackArt}}"
+              alt="Albüm kapağı"
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer"
+            />
+          </a>
+          <div class="spotify-meta">
+            <a id="spotify-song" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" class="spotify-song">
+              Bekleniyor...
+            </a>
+            <p id="spotify-artist" class="spotify-artist">Lanyard WebSocket bağlanıyor</p>
+            <p id="spotify-album" class="spotify-album">@{{profile.username}}</p>
+          </div>
+          <button type="button" class="activity-nav" id="activity-next-btn" aria-label="Sonraki etkinlik" hidden>›</button>
+        </div>
+
+        <div class="spotify-progress-wrap" id="spotify-progress-wrap" aria-hidden="true" hidden>
+          <div class="progress-track">
+            <div class="progress-fill" id="spotify-progress-fill"></div>
+          </div>
+          <div class="progress-times">
+            <span id="spotify-time-elapsed">0:00</span>
+            <span id="spotify-time-total">0:00</span>
+          </div>
+        </div>
+        <div class="snake-game" id="snake-game" hidden>
+          <div class="snake-game-head"><span>Mini Snake</span><span class="snake-record-live" id="snake-record-live"></span><span id="snake-score">Skor: 0</span></div>
+          <canvas id="snake-canvas" width="276" height="92" tabindex="0" aria-label="Mini Snake oyunu. Ok tuşlarıyla yılanı yönlendir."></canvas>
+          <p class="snake-help">Yönlendirmek için ok tuşlarını kullan.</p>
+        </div>
+        <button type="button" class="idle-game-prompt" id="idle-game-prompt" hidden aria-label="Mini Snake oyununu başlat">
+          <span class="idle-game-main">
+            <span class="idle-game-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 001.5.86l10.4-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg></span>
+            <span class="idle-game-text">
+              <strong>Oyun oynamak için tıkla</strong>
+              <small>Mini Snake · Ok tuşlarıyla oyna</small>
+            </span>
+            <span class="idle-game-go" aria-hidden="true">›</span>
+          </span>
+          <span class="snake-record" id="snake-record-idle" hidden>
+            <span class="snake-record-label">🏆 <span id="snake-record-title">Rekor</span></span>
+            <span class="snake-record-value"><b id="snake-record-score">0</b> puan · <span id="snake-record-name"></span></span>
+          </span>
+        </button>
+        <form class="snake-name-form" id="snake-name-form" hidden novalidate>
+          <label for="snake-name">Rekor tablosu için kullanıcı adın</label>
+          <div class="snake-name-row">
+            <input id="snake-name" name="snake-name" maxlength="16" autocomplete="nickname" placeholder="örn. ferb" spellcheck="false" />
+            <button type="submit" id="snake-name-submit">Başla ▶</button>
+          </div>
+          <p class="snake-name-error" id="snake-name-error" role="alert" hidden></p>
+          <button type="button" class="snake-name-cancel" id="snake-name-cancel">Vazgeç</button>
+        </form>
+      </section>
+    </aside>
+
+    <!-- TASLAKTAKİ DİKEY AYIRICI ÇİZGİ -->
+    <div class="vertical-divider" aria-hidden="true"></div>
+
+    <!-- SAĞ SÜTUN: Hakkımda, Eğitim, Çalışma Hayatı, Projeler -->
+    <main class="main-content" id="main-content">
+      <section id="hakkimda" class="cv-section reveal-on-scroll is-visible" aria-labelledby="heading-hakkimda" {{view.hide.about}}>
+        <div class="section-header">
+          <span class="section-kicker">{{sections.about.kicker}}</span>
+          <h2 id="heading-hakkimda" class="section-title">{{sections.about.title}}</h2>
+        </div>
+        <div class="about-bento-grid" id="about-bento-grid"></div>
+      </section>
+
+      <section id="egitim" class="cv-section reveal-on-scroll" aria-labelledby="heading-egitim" {{view.hide.education}}>
+        <div class="section-header">
+          <span class="section-kicker">{{sections.education.kicker}}</span>
+          <h2 id="heading-egitim" class="section-title">{{sections.education.title}}</h2>
+        </div>
+        <div class="timeline-list" id="education-list"></div>
+        <div class="certificates-strip" id="certificates-list"></div>
+      </section>
+
+      <section id="calisma-hayati" class="cv-section reveal-on-scroll" aria-labelledby="heading-calisma" {{view.hide.experience}}>
+        <div class="section-header">
+          <span class="section-kicker">{{sections.experience.kicker}}</span>
+          <h2 id="heading-calisma" class="section-title">{{sections.experience.title}}</h2>
+        </div>
+        <div class="timeline-list" id="experience-list"></div>
+      </section>
+
+      <section id="projeler" class="cv-section reveal-on-scroll" aria-labelledby="heading-projeler" {{view.hide.projects}}>
+        <div class="section-header projects-header-row">
+          <div>
+            <span class="section-kicker">{{sections.projects.kicker}}</span>
+            <h2 id="heading-projeler" class="section-title">{{sections.projects.title}}</h2>
+          </div>
+        </div>
+        <div class="projects-bento-grid" id="projects-grid"></div>
+        <nav class="projects-pagination" id="projects-pagination" aria-label="Proje sayfaları"></nav>
+      </section>
+
+      <footer class="site-footer">
+        <p>© <span id="footer-year"></span> {{profile.footer}}</p>
+      </footer>
+    </main>
+  </div>
+
+  <article class="print-cv" id="print-cv" aria-hidden="true"></article>
+
+  <!-- Sürpriz Etkileşim: Hızlı Komut Paleti (Ctrl+K / Cmd+K / F4) -->
+  <div class="cmd-modal" id="cmd-modal" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="cmd-title" hidden>
+    <div class="cmd-dialog glass-surface">
+      <div class="cmd-input-row">
+        <span aria-hidden="true">⌘</span>
+        <input type="text" id="cmd-search" placeholder="Bölüme git, tema değiştir veya e-posta kopyala..." autocomplete="off" />
+        <button type="button" class="cmd-esc" id="cmd-close-btn">ESC</button>
+      </div>
+      <p id="cmd-title" class="sr-only">Hızlı Komut Paleti</p>
+      <ul class="cmd-list" id="cmd-list"></ul>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Sıralı Modüler JS Dosyaları (file:// ve HTTP sunucularda sorunsuz çalışır) -->
+  <!-- Mobil: Liquid Glass alt gezinme çubuğu -->
+  <nav class="tabbar" id="tabbar" aria-label="Hızlı gezinme">
+    <span class="tabbar-lens" aria-hidden="true"></span>
+      <a href="#hakkimda" class="tab-link is-active" data-section="hakkimda" {{view.hide.about}}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>{{sections.about.nav}}</span></a>
+      <a href="#egitim" class="tab-link" data-section="egitim" {{view.hide.education}}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg><span>{{sections.education.nav}}</span></a>
+      <a href="#calisma-hayati" class="tab-link" data-section="calisma-hayati" {{view.hide.experience}}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7M3 13h18"/></svg><span>{{sections.experience.nav}}</span></a>
+      <a href="#projeler" class="tab-link" data-section="projeler" {{view.hide.projects}}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg><span>{{sections.projects.nav}}</span></a>
+  </nav>
+
+  <script src="js/loader.js"></script>
+  <script defer src="/js/data.js"></script>
+  <script defer src="js/lanyard.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script defer src="js/effects.js"></script>
+  <script defer src="js/qrcode.js"></script>
+  <script defer src="js/cv-render.js"></script>
+  <script defer src="js/presence.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* CV şablonları — A4 (210×297 mm). Hem /cv sayfasında hem de yazdırırken kullanılır. */
+.cvdoc, .cvdoc * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.cvdoc {
+  --z: 1; --acc: #38bdf8;
+  zoom: var(--z);
+  width: calc(210mm / var(--z));
+  background: #fff; color: #1e293b;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif; font-size: 8.4pt; line-height: 1.4;
+}
+.cvdoc p { margin: 0; }
+.cvdoc .cv-page { min-height: calc(296.5mm / var(--z)); }
+.cvdoc.is-measuring .cv-page { min-height: 0; }
+.cvdoc[data-pages="1"] { height: calc(296.5mm / var(--z)); overflow: hidden; }
+
+.cvdoc .cv-entry { break-inside: avoid; }
+.cvdoc .cv-logo { object-fit: contain; background: #fff; }
+.cvdoc .cv-logo-ph { display: grid; place-items: center; font-weight: 700; }
+.cvdoc .cv-photo { display: block; object-fit: cover; object-position: 62% 18%; }
+.cvdoc .cv-chips { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+.cvdoc .cv-cert strong, .cvdoc .cv-lang strong, .cvdoc .cv-ref strong { display: block; }
+.cvdoc .cv-cert span, .cvdoc .cv-lang span, .cvdoc .cv-ref span { display: block; }
+.cvdoc .cv-contact-row { display: flex; flex-direction: column; word-break: break-word; }
+.cvdoc .cv-contact-row small { text-transform: uppercase; }
+
+/* ========== 1) MODERN: koyu yan panel ========== */
+.cv-modern { display: grid; grid-template-columns: calc(70mm / var(--z)) 1fr; background: linear-gradient(to right, #0f172a calc(70mm / var(--z)), #fff 0); }
+.cv-modern .cv-side { color: #e2e8f0; padding: 14mm 8mm 10mm; display: flex; flex-direction: column; gap: 5.5mm; position: relative; align-self: stretch; }
+.cv-modern .cv-side::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3mm; background: var(--acc); }
+.cv-modern .cv-photo { width: 42mm; height: 42mm; margin: 2mm auto 1mm; border-radius: 50%; border: 1.2mm solid var(--acc); background: #1e293b; }
+.cv-modern .cv-side .cv-h { margin: 0 0 2mm; font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; color: var(--acc); padding-bottom: 1.2mm; border-bottom: .3mm solid rgba(148,163,184,.35); }
+.cv-modern .cv-contact-row { margin-bottom: 1.8mm; }
+.cv-modern .cv-contact-row small { font-size: 6.4pt; letter-spacing: .12em; color: #94a3b8; }
+.cv-modern .cv-chip { padding: .7mm 2.2mm; border-radius: 99px; background: rgba(255,255,255,.08); border: .25mm solid rgba(255,255,255,.28); font-size: 6.6pt; color: #e2e8f0; }
+.cv-modern .cv-cert, .cv-modern .cv-lang, .cv-modern .cv-ref { margin-bottom: 2.2mm; }
+.cv-modern .cv-cert strong, .cv-modern .cv-lang strong { font-size: 7.4pt; color: #fff; line-height: 1.3; }
+.cv-modern .cv-cert span, .cv-modern .cv-lang span, .cv-modern .cv-ref span { font-size: 6.6pt; color: #94a3b8; }
+.cv-modern .cv-main { padding: 14mm 11mm 10mm; display: flex; flex-direction: column; gap: 4.5mm; }
+.cv-modern .cv-head h1 { margin: 0; font-size: 27pt; line-height: 1.05; letter-spacing: -.01em; color: #0f172a; }
+.cv-modern .cv-role { margin-top: 1.5mm; font-size: 10pt; font-weight: 600; color: var(--acc); letter-spacing: .04em; filter: brightness(.78); }
+.cv-modern .cv-bar { margin-top: 3mm; height: .9mm; width: 22mm; background: var(--acc); border-radius: 1mm; }
+.cv-modern .cv-summary { color: #334155; }
+.cv-modern .cv-main .cv-summary-sec .cv-h { display: none; }
+.cv-modern .cv-main .cv-h { margin: 0 0 2.4mm; font-size: 9.4pt; letter-spacing: .16em; text-transform: uppercase; color: #0f172a; display: flex; align-items: center; gap: 2.5mm; }
+.cv-modern .cv-main .cv-h::after { content: ""; flex: 1; height: .3mm; background: #cbd5e1; }
+.cv-modern .cv-entry { display: grid; grid-template-columns: 8.5mm 1fr; gap: 3mm; margin-bottom: 3mm; }
+.cv-modern .cv-logo { width: 8.5mm; height: 8.5mm; border-radius: 2mm; border: .25mm solid #e2e8f0; padding: .8mm; }
+.cv-modern .cv-logo-ph { font-size: 7pt; color: #475569; background: #f1f5f9; }
+.cv-modern .cv-entry-top { display: flex; justify-content: space-between; gap: 3mm; align-items: baseline; }
+.cv-modern .cv-entry-top strong { font-size: 9pt; color: #0f172a; }
+.cv-modern .cv-date { font-size: 6.8pt; color: #475569; font-weight: 600; white-space: nowrap; }
+.cv-modern .cv-sub { font-size: 7.6pt; color: #475569; font-weight: 500; }
+.cv-modern .cv-desc { margin-top: .8mm; font-size: 7.4pt; color: #64748b; }
+.cv-modern .cv-main .cv-ref { margin-bottom: 1.6mm; }
+
+/* ========== 2) KLASİK: tek sütun, ATS uyumlu ========== */
+.cv-klasik { padding: 14mm 16mm 12mm; font-family: Georgia, "Times New Roman", serif; font-size: 9pt; color: #111827; display: flex; flex-direction: column; gap: 3.6mm; }
+.cv-klasik .cv-top { display: flex; justify-content: space-between; align-items: center; gap: 6mm; }
+.cv-klasik .cv-head { flex: 1; }
+.cv-klasik .cv-head h1 { margin: 0; font-size: 24pt; line-height: 1.05; font-weight: 700; color: #111827; }
+.cv-klasik .cv-role { margin-top: 1.2mm; font-size: 11pt; color: var(--acc); font-style: italic; filter: brightness(.85); }
+.cv-klasik .cv-bar { margin-top: 2.6mm; height: .5mm; width: 100%; background: var(--acc); }
+.cv-klasik .cv-photo { width: 27mm; height: 32mm; border-radius: 1.5mm; border: .3mm solid #d1d5db; flex: none; }
+.cv-klasik .cv-contact .cv-h, .cv-klasik .cv-summary-sec .cv-h { display: none; }
+.cv-klasik .cv-contact { margin-top: -1.5mm; display: flex; flex-wrap: wrap; gap: 0 4mm; font-family: "Poppins", "Segoe UI", Arial, sans-serif; font-size: 8pt; color: #374151; }
+.cv-klasik .cv-contact-row { flex-direction: row; }
+.cv-klasik .cv-contact-row small { display: none; }
+.cv-klasik .cv-contact-row:not(:last-child)::after { content: "•"; margin-left: 4mm; color: #9ca3af; }
+.cv-klasik .cv-h { margin: 0 0 1.6mm; font-size: 10pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #111827; border-bottom: .3mm solid #111827; padding-bottom: .8mm; }
+.cv-klasik .cv-summary { font-size: 9pt; color: #1f2937; }
+.cv-klasik .cv-entry { margin-bottom: 2.6mm; }
+.cv-klasik .cv-logo { display: none; }
+.cv-klasik .cv-entry-top { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+.cv-klasik .cv-entry-top strong { font-size: 9.6pt; }
+.cv-klasik .cv-date { font-size: 8pt; color: #4b5563; font-style: italic; white-space: nowrap; }
+.cv-klasik .cv-sub { font-size: 8.6pt; color: #374151; font-style: italic; }
+.cv-klasik .cv-desc { margin-top: .6mm; font-size: 8.4pt; color: #374151; }
+.cv-klasik .cv-chips { gap: 0; }
+.cv-klasik .cv-chip { font-size: 8.6pt; }
+.cv-klasik .cv-chip:not(:last-child)::after { content: "•"; margin: 0 2mm; color: #9ca3af; }
+.cv-klasik .cv-cert, .cv-klasik .cv-ref { margin-bottom: 1.4mm; }
+.cv-klasik .cv-cert strong, .cv-klasik .cv-ref strong { display: inline; font-size: 8.8pt; }
+.cv-klasik .cv-cert span { display: inline; font-size: 8.2pt; color: #4b5563; }
+.cv-klasik .cv-cert span::before { content: " — "; }
+.cv-klasik .cv-lang { display: inline-block; margin-right: 6mm; }
+.cv-klasik .cv-lang strong, .cv-klasik .cv-lang span { display: inline; font-size: 8.6pt; }
+.cv-klasik .cv-lang span::before { content: " ("; }
+.cv-klasik .cv-lang span::after { content: ")"; }
+.cv-klasik .cv-ref span { display: inline; font-size: 8.2pt; color: #4b5563; margin-left: 2mm; }
+
+/* ========== 3) ZARİF: renkli üst bant + iki sütun ========== */
+.cv-zarif { display: flex; flex-direction: column; }
+.cv-zarif .cv-top { background: var(--acc); color: #fff; padding: 13mm 14mm 9mm; display: flex; align-items: center; gap: 8mm; }
+.cv-zarif .cv-photo { width: 33mm; height: 33mm; border-radius: 50%; border: 1.2mm solid rgba(255,255,255,.9); flex: none; }
+.cv-zarif .cv-head h1 { margin: 0; font-size: 26pt; line-height: 1.05; color: #fff; text-shadow: 0 0 .1mm rgba(0,0,0,.35); }
+.cv-zarif .cv-role { margin-top: 1.5mm; font-size: 10.5pt; font-weight: 500; color: #fff; opacity: .95; letter-spacing: .04em; }
+.cv-zarif .cv-bar { display: none; }
+.cv-zarif .cv-cols { display: grid; grid-template-columns: 1fr 62mm; gap: 8mm; padding: 8mm 14mm 10mm; flex: 1; }
+.cv-zarif .cv-main { display: flex; flex-direction: column; gap: 4.2mm; }
+.cv-zarif .cv-side { background: #f8fafc; border-radius: 2.5mm; padding: 6mm 5mm; display: flex; flex-direction: column; gap: 4.6mm; align-self: start; }
+.cv-zarif .cv-h { margin: 0 0 2mm; font-size: 9pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #0f172a; padding-bottom: 1mm; border-bottom: .6mm solid var(--acc); display: inline-block; }
+.cv-zarif .cv-summary-sec .cv-h { display: none; }
+.cv-zarif .cv-summary { color: #334155; font-size: 8.8pt; }
+.cv-zarif .cv-entry { display: grid; grid-template-columns: 8mm 1fr; gap: 3mm; margin-bottom: 3mm; }
+.cv-zarif .cv-logo { width: 8mm; height: 8mm; border-radius: 50%; border: .25mm solid #e2e8f0; padding: .7mm; }
+.cv-zarif .cv-logo-ph { font-size: 6.6pt; color: #fff; background: var(--acc); border: none; }
+.cv-zarif .cv-entry-top { display: flex; justify-content: space-between; gap: 3mm; align-items: baseline; }
+.cv-zarif .cv-entry-top strong { font-size: 9pt; color: #0f172a; }
+.cv-zarif .cv-date { font-size: 6.8pt; color: #475569; font-weight: 600; white-space: nowrap; }
+.cv-zarif .cv-sub { font-size: 7.6pt; color: #475569; font-weight: 500; }
+.cv-zarif .cv-desc { margin-top: .8mm; font-size: 7.4pt; color: #64748b; }
+.cv-zarif .cv-contact-row { margin-bottom: 1.6mm; }
+.cv-zarif .cv-contact-row small { font-size: 6.2pt; letter-spacing: .12em; color: #64748b; }
+.cv-zarif .cv-contact-row span { font-size: 7.4pt; }
+.cv-zarif .cv-chip { padding: .7mm 2.2mm; border-radius: 99px; background: #fff; border: .25mm solid var(--acc); font-size: 6.8pt; color: #0f172a; }
+.cv-zarif .cv-cert, .cv-zarif .cv-lang, .cv-zarif .cv-ref { margin-bottom: 2mm; }
+.cv-zarif .cv-cert strong, .cv-zarif .cv-lang strong, .cv-zarif .cv-ref strong { font-size: 7.6pt; color: #0f172a; line-height: 1.3; }
+.cv-zarif .cv-cert span, .cv-zarif .cv-lang span, .cv-zarif .cv-ref span { font-size: 7pt; color: #64748b; }
+
+/* ========== 4) KOMPAKT: tarih sütunlu, çok içerik için ========== */
+.cv-kompakt { padding: 11mm 13mm 9mm; font-size: 7.9pt; display: flex; flex-direction: column; gap: 3mm; color: #1f2937; }
+.cv-kompakt .cv-top { display: flex; justify-content: space-between; align-items: center; gap: 5mm; }
+.cv-kompakt .cv-head { flex: 1; }
+.cv-kompakt .cv-head h1 { margin: 0; font-size: 21pt; line-height: 1.05; color: #0f172a; }
+.cv-kompakt .cv-role { margin-top: 1mm; font-size: 9.6pt; font-weight: 600; color: var(--acc); filter: brightness(.85); }
+.cv-kompakt .cv-bar { margin-top: 2mm; height: .8mm; width: 100%; background: var(--acc); border-radius: 1mm; }
+.cv-kompakt .cv-photo { width: 24mm; height: 24mm; border-radius: 2.5mm; flex: none; }
+.cv-kompakt .cv-contact .cv-h, .cv-kompakt .cv-summary-sec .cv-h { display: none; }
+.cv-kompakt .cv-contact { display: flex; flex-wrap: wrap; gap: 0 4mm; margin-top: -1mm; font-size: 7.4pt; color: #475569; }
+.cv-kompakt .cv-contact-row { flex-direction: row; }
+.cv-kompakt .cv-contact-row small { display: none; }
+.cv-kompakt .cv-contact-row:not(:last-child)::after { content: "·"; margin-left: 4mm; color: #94a3b8; }
+.cv-kompakt .cv-h { margin: 0 0 1.6mm; font-size: 8.4pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #0f172a; border-left: 1.2mm solid var(--acc); padding-left: 2mm; }
+.cv-kompakt .cv-summary { color: #374151; }
+.cv-kompakt .cv-entry { margin-bottom: 2mm; }
+.cv-kompakt .cv-logo { display: none; }
+.cv-kompakt .cv-entry-body { display: grid; grid-template-columns: 27mm 1fr; column-gap: 3mm; }
+.cv-kompakt .cv-entry-top { display: contents; }
+.cv-kompakt .cv-date { grid-column: 1; grid-row: 1 / span 3; font-size: 7pt; color: #475569; font-weight: 600; padding-top: .3mm; }
+.cv-kompakt .cv-entry-top strong { grid-column: 2; font-size: 8.4pt; color: #0f172a; }
+.cv-kompakt .cv-sub { grid-column: 2; font-size: 7.4pt; color: #475569; }
+.cv-kompakt .cv-desc { grid-column: 2; margin-top: .4mm; font-size: 7.2pt; color: #64748b; }
+.cv-kompakt .cv-chip { padding: .5mm 2mm; border-radius: 99px; border: .25mm solid var(--acc); font-size: 6.8pt; color: #0f172a; }
+.cv-kompakt .cv-cert, .cv-kompakt .cv-lang, .cv-kompakt .cv-ref { display: inline-block; vertical-align: top; width: 48%; margin: 0 1% 1.4mm 0; }
+.cv-kompakt .cv-cert strong, .cv-kompakt .cv-lang strong, .cv-kompakt .cv-ref strong { font-size: 7.6pt; }
+.cv-kompakt .cv-cert span, .cv-kompakt .cv-lang span, .cv-kompakt .cv-ref span { font-size: 6.8pt; color: #64748b; }
+
+/* ========== Doğrulama QR kodu (sağ alt köşe) ========== */
+.cvdoc { position: relative; }
+.cvdoc .cv-qr { position: absolute; right: 8mm; bottom: 6mm; width: 26mm; display: flex; flex-direction: column; align-items: center; text-align: center; font-family: "Poppins", "Segoe UI", Arial, sans-serif; color: #475569; z-index: 2; }
+.cvdoc .cv-qr.is-pending { height: 28mm; }
+.cvdoc .cv-qr svg { width: 17mm; height: 17mm; display: block; border: .25mm solid #e2e8f0; border-radius: 1.2mm; background: #fff; }
+.cvdoc .cv-qr span { margin-top: .8mm; font-size: 5pt; line-height: 1.1; color: #64748b; }
+.cvdoc .cv-qr b { font-family: Consolas, "Courier New", monospace; font-size: 6.4pt; letter-spacing: .04em; color: #0f172a; line-height: 1.2; }
+.cvdoc .cv-qr small { font-size: 4.4pt; line-height: 1.1; color: #94a3b8; }
+.cvdoc.has-qr .cv-modern .cv-main { padding-bottom: 28mm; }
+.cvdoc.has-qr .cv-zarif .cv-cols { padding-bottom: 28mm; }
+.cvdoc.has-qr .cv-klasik, .cvdoc.has-qr .cv-kompakt { padding-bottom: 30mm; }

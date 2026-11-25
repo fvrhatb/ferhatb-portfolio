@@ -1,0 +1,19 @@
+{
+  "name": "ferhatb-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ferhatb.com kişisel site + yönetim paneli (Node.js / Express / Appwrite)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "setup:appwrite": "node scripts/setup-appwrite.js",
+    "migrate:media": "node scripts/migrate-media.js"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "express": "4.21.2"
+  }
+}

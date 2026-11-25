@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Tasarım Token'ları: Koyu / Açık Tema ve Poppins Tipografi Sistemi
+   ========================================================================== */
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #38bdf8;
+}
+
+@property --accent-soft {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(56, 189, 248, 0.14);
+}
+
+@property --accent-glow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(56, 189, 248, 0.12);
+}
+
+@property --song-bg-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --song-bg-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+:root {
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Karanlık Mod (Varsayılan Geliştirici Teması) */
+  --bg-base: #090b10;
+  --bg-elevated: #111520;
+  --bg-card: rgba(19, 24, 36, 0.82);
+  --bg-glass: rgba(22, 28, 42, 0.62);
+  --bg-pill: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #f4f6fb;
+  --text-secondary: #a5b0c6;
+  --text-muted: #76839b;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.14);
+  --accent-secondary: #1db954;
+  --accent-glow: rgba(56, 189, 248, 0.12);
+  --song-bg-primary: transparent;
+  --song-bg-secondary: transparent;
+
+  /* Discord Durum Renkleri */
+  --status-online: #23a55a;
+  --status-idle: #f0b232;
+  --status-dnd: #f23f43;
+  --status-offline: #80848e;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 12px 32px -12px rgba(0, 0, 0, 0.55);
+  --transition-fast: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-smooth: 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="light"] {
+  --bg-base: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.94);
+  --bg-glass: rgba(255, 255, 255, 0.76);
+  --bg-pill: rgba(15, 23, 42, 0.05);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-strong: rgba(15, 23, 42, 0.18);
+
+  --accent: #0284c7;
+  --accent-soft: rgba(2, 132, 199, 0.1);
+  --accent-secondary: #15803d;
+  --accent-glow: rgba(2, 132, 199, 0.09);
+
+  --shadow-card: 0 12px 30px -12px rgba(15, 23, 42, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fare işaretçisi: metin alanlarının ve devre dışı öğelerin sistem imleci korunur. */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: url('/assets/cursor-blue.svg') 5 3, auto; }
+  a[href], button:not(:disabled), [role="button"], label[for], select:not(:disabled) {
+    cursor: url('/assets/cursor-blue-pointer.svg') 14 4, pointer;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Lenis smooth scroll gereksinimleri */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }

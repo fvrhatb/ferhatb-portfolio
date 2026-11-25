@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>404 · Sayfa Bulunamadı — Ferhat Bayram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/errors/error.css">
+  <script>
+    try {
+      var t = localStorage.getItem("ferb-theme");
+      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <main class="err" role="main">
+    <p class="err-code" aria-label="Hata 404">404</p>
+    <h1 class="err-title">Sayfa Bulunamadı</h1>
+    <p class="err-text">Aradığın sayfa taşınmış, silinmiş ya da hiç var olmamış olabilir. Adresi kontrol et ya da ana sayfaya dön.</p>
+    <div class="err-actions">
+      <a class="btn btn-primary" href="/">Ana sayfaya dön</a>
+      <button class="btn" type="button" onclick="history.length > 1 ? history.back() : (location.href = '/')">Geri git</button>
+    </div>
+    <p class="err-foot"><a href="/">ferhatb.com</a> · HTTP 404</p>
+  </main>
+</body>
+</html>

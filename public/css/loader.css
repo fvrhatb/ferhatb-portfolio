@@ -1,0 +1,19 @@
+/* Açılış ekranı: basit dönen loader */
+html.is-loading, html.is-loading body { overflow: hidden; }
+
+.loader {
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center;
+  background: var(--bg-base, #08090d);
+  transition: opacity 500ms ease, visibility 0s linear .5s;
+}
+.loader.is-done { opacity: 0; visibility: hidden; }
+.loader.is-gone { display: none; }
+
+.spinner {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 3px solid var(--border-strong, rgba(255,255,255,.16));
+  border-top-color: var(--accent, #38bdf8);
+  animation: spin .8s linear infinite !important;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
